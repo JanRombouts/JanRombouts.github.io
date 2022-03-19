@@ -1,0 +1,196 @@
+:root {
+    --alchemy-border: rgba(0,0,0,.1);
+
+    /* add colors from telecaster palette */
+    --tele-blue: #91AAB3;
+    --tele-darkblue:#749097;
+    --tele-lightbrown: #EEB067;
+    --tele-darkbrown:#443731;
+    --tele-lightgrey:#D1D2CC;
+    --tele-darkgrey:#948F84;
+    --tele-middlegrey:#C3B9A5;
+    --tele-v-purple:#6F596C;
+}
+::selection {
+  background: var(--primary);
+  color: var(--secondary);
+  text-shadow: none;
+}
+a{
+  color: var(--tele-v-purple);
+}
+.icon a {
+  color: var(--tele-blue);
+}
+a:hover{
+  color: var(--tele-blue);
+  text-decoration: none;
+}
+.icon a:hover {
+  color: var(--tele-v-purple);
+}
+
+h1{
+  color: var(--tele-darkbrown);
+}
+blockquote {
+  opacity: .7;
+  font-style: italic;
+}
+
+hr {
+  margin: 1rem 0;
+  border:1px solid var(--tele-lightgrey);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.teaser header li img {
+  max-width: 60%;
+}
+.teaser header li i {
+  /* the calendar icon*/
+  margin-right:.3em;
+}
+body {
+  font-family: Lato, Roboto, Arial;
+  font-weight: 400;
+}
+#headshot {
+  max-width: 50%;
+  height: auto;
+  object-fit: contain;
+  margin: 1ex auto;
+}
+
+.spamprotection {
+  display:none;
+}
+/* ------------------------------------------------------------------------- */
+
+.container {
+  max-width: 960px;
+}
+
+.header,
+.footer {
+  background-color: var(--light);
+
+  padding: 1.5rem 0 .5rem;
+}
+
+.header {
+  border-bottom: 1px solid var(--alchemy-border);
+
+}
+
+.header img {
+  margin-bottom: 1rem;
+}
+
+.header .title {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.header ul,
+.header li {
+  margin-bottom: .5rem;
+}
+
+.header ul {
+  font-size: 1.25rem;
+  font-weight: 300;
+  text-transform: lowercase;
+}
+
+.main {
+  padding: 1.5rem 0;
+}
+
+.footer {
+  border-top: 1px solid var(--alchemy-border);
+}
+
+.highlight pre {
+  border: 1px solid var(--alchemy-border);
+  padding: 1rem;
+}
+
+.teaser header ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.teaser header li {
+  margin-bottom: .5rem;
+}
+
+.teaser .content p {
+  margin-bottom: 0;
+}
+
+.article header ul,
+.article header li {
+  margin-bottom: .5rem;
+}
+
+.article header li:not(:last-child) {
+  margin-right: 10px;
+}
+
+
+.admonition {
+  border: thin solid gray;
+  background-color: lightgrey;
+  padding: .25em .5em;
+  margin-bottom: 1rem;
+}
+
+.admonition .admonition-title {
+  font-weight: bold;
+  background-color: rgba(255,255,255,0.66);
+  text-align: center;
+}
+
+.admonition p.last  {
+  margin-bottom: 0;
+}
+
+.admonition.important, .admonition.note, .admonition.warning {
+  border-color: goldenrod;
+  background-color: lightgoldenrodyellow;
+}
+
+.admonition.attention, .admonition.caution, .admonition.danger, .admonition.error {
+  border-color: red;
+  background-color: lightpink;
+}
+
+.admonition.hint, .admonition.tip {
+  border-color: limegreen;
+  background-color: palegreen;
+}
+
+@media (min-width: 576px) {
+  .header .title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .header,
+  .footer {
+    text-align: center;
+  }
+
+  .teaser header li {
+    display: inline-block;
+  }
+
+  .teaser header li:not(:last-child) {
+    margin-right: 10px;
+  }
+}
