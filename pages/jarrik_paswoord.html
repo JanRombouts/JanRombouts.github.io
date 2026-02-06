@@ -16,7 +16,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;        }
+            height: 100vh;
+            font-size: 2em;
+        }
 
         h2 {
             font-size: 3em;
@@ -29,7 +31,7 @@
             margin-top: 20px;
             border: 2px solid #ff0000;
             background-color: #111;
-            color: #ff0000;
+            color: #1600dd;
             outline: none;
             text-align: center;
             font-family: 'Creepster', cursive;
@@ -53,8 +55,9 @@
 
         #message {
             margin-top: 20px;
-            font-size: 1.5em;
+            font-size: 1.em;
             animation: flicker 2s infinite alternate;
+            text-align: center;
         }
 
         @keyframes flicker {
@@ -93,22 +96,68 @@
                 padding: 12px;
             }
         }
+
+        .sparkle {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 10px white, 0 0 20px rgb(191, 15, 226);
+            animation: sparkleFade 1s forwards;
+        }
+
+        @keyframes sparkleFade {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(6);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <h2>DAG JARRIK! PASWOORD?</h2>
-    <input type="password" id="passwordInput" placeholder="Vul in" style="width: 80%; max-width: 300px;">
-    <button style="width: 80%; max-width: 200px;">Verzenden</button>
+    <h2>DAG JARRIK!</h2>
+    Proficiat, je hebt bijna onze proeven doorstaan. Vul je paswoord in.
+    <input type="text" id="passwordInput" placeholder="Vul in" style="width: 80%; max-width: 300px;">
+    <button style="width: 80%; max-width: 200px;" onclick="checkPassword()">Verzenden</button>
     <div id="message"></div>
 
     <script>
+        function createSparkle() {
+            const sparkle = document.createElement("div");
+            sparkle.classList.add("sparkle");
+
+            // Random position
+            sparkle.style.left = Math.random() * window.innerWidth + "px";
+            sparkle.style.top = Math.random() * window.innerHeight + "px";
+
+            document.body.appendChild(sparkle);
+
+            // Remove after animation
+            setTimeout(() => {
+                sparkle.remove();
+            }, 1000);
+        }
+
+        function sparkleBurst() {
+            for (let i = 0; i < 100; i++) {
+                setTimeout(createSparkle, i * 50);
+            }
+        }
         function checkPassword() {
-            const password = document.getElementById('passwordInput').value;
+            const password = document.getElementById('passwordInput').value.toLowerCase();
             const messageDiv = document.getElementById('message');
-            if (password === 'APISQ') {
-                messageDiv.textContent = 'Goed gedaan!! \n Maar om echt te tonen dat je het waard bent Linde te bevrijden, een laatste test. Morgen in Le Manoir. Be there!';
+            if (password === 'apisq') {
+                messageDiv.innerHTML = 'Goed gedaan!! <br/> Maar om echt te tonen dat je het waard bent Linde te bevrijden, een laatste test. <br /> Morgen in Le Manoir. Be there!';
                 messageDiv.style.color = 'yellow';
+                sparkleBurst();
             } else {
                 messageDiv.textContent = 'Fout!';
                 messageDiv.style.color = 'white';
